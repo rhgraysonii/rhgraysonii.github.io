@@ -1,8 +1,8 @@
 # Site wide configuration
 
-title: Site Title
+title: Ruby Rhizomes
 locale: en_US
-description: Describe your website here.
+description: Bob's Bob Blog
 logo: site-logo.png
 search: true
 url: http://localhost:4000
@@ -31,16 +31,16 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 
 # Site owner
 owner:
-  name: Your Name
-  avatar: bio-photo.jpg
-  email: you@email.com
+  name: Robert Grayson 
+  avatar: b.jpg
+  email: bobbygrayson@gmail.com
   disqus-shortname:
-  twitter: #username
+  twitter: _devbob
   facebook: #username
-  github: #username
+  github: rhgraysonii
   stackexchange: #http://stackoverflow.com/users/123456/username
   linkedin: #username
-  instagram: #username
+  instagram: _devbob
   flickr: #username
   tumblr: #username
   pinterest: #username
