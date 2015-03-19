@@ -4,13 +4,186 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2015-03-18T21:09:01-04:00</updated>
+<updated>2015-03-18T21:25:18-04:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Your Name</name>
   <uri>http://localhost:4000/</uri>
   <email>you@email.com</email>
 </author>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Ruby Tutorial]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/ruby-tutorial/" />
+  <id>http://localhost:4000/ruby-tutorial</id>
+  <published>2015-03-18T21:18:07-04:00</published>
+  <updated>2015-03-18T21:18:07-04:00</updated>
+  <author>
+    <name>Your Name</name>
+    <uri>http://localhost:4000</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">
+    &lt;h1 id=&quot;building-something-more-complex&quot;&gt;Building Something More Complex&lt;/h1&gt;
+
+&lt;p&gt;Now, this &lt;code&gt;Bob&lt;/code&gt; class and any test we have written, let us be honest with ourselves, they are the
+very definition of trivial. However, we now have a scaffold that will let us build a more complex
+application. In order to do this were going to do a few things. First, we should start utilizing
+&lt;code&gt;git&lt;/code&gt;. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-BASH&quot;&gt;git init
+git add .
+git commit -m &#39;initial commit&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, in order to read about git, I heavily recommend &lt;a href=&quot;http://www.gitbook.com&quot;&gt;The Git Book&lt;/a&gt; if you want an in
+depth primer. However, if you want the basic idea of git, here is what it allows us to do:
+we have a very simple way of tracking line by line changes in a document, that are stored on a
+tree. We can branch from this, diff work, and combine work. It is a wonderful tool and considered
+a standard part of the arsenal for any Rubyist. Now, how about we make this class something
+that actually seems to have a goal. Why not make a Ruby interface that will allow us to search
+Amazon. This could be fun!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-BASH&quot;&gt;git mv lib/bob.rb lib/scraper.rb
+git mv spec/my_first_spec.rb spec/scraper_spec.rb
+editor lib/scraper_spec.rb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-RUBY&quot;&gt;require &#39;./lib/scraper&#39;
+
+describe Scraper do
+  let(:browser) { Scraper::Browser.new }
+  it &quot;is in fact a Browser&quot; do
+    expect(browser.class).to eq Mechanize
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With these changes, we should get a new failure when we run all of these.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rspec spec/scraper_spec.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bobby@devbox:~/ruby_tutorial-ocr/some_dir$ rspec spec/scraper_spec.rb 
+/home/bobby/ruby_tutorial-ocr/some_dir/spec/scraper_spec.rb:3:in 
+&amp;lt;top (required)&amp;gt;: uninitialized constant Scraper::Brwoser (NameError)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A new failure. So now we can modify the old class to make it passing!&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;editor lib/scraper.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-RUBY&quot;&gt;require &#39;mechanize&#39;
+
+module Scraper 
+  class Browser 
+    def initialize
+      @browser = Mechanize.new { |x| x.user_agent_alias = &quot;Mac Safari&quot; }
+    end
+
+    def browser
+      @browser
+    end
+  end
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There is quite a bit of change here so we will break it down piece by piece.&lt;/p&gt;
+
+&lt;p&gt;First of all, we have created a module to wrap everything in. This provides
+us not only an easy way to package whatever we make with other Ruby code,
+but also provides us a way to start thinking about bigger architecture.
+Inside the module Scraper, we make a class &lt;code&gt;Browser&lt;/code&gt;. This class, when instantiated will spawn
+a Mechanize instance that is using the Mac Safari user agent alias. Now that we have this, we
+will be able to go out and scrape some data to get things from amazing.com via our Ruby wrapper.&lt;/p&gt;
+
+&lt;p&gt;Time for another test:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-RUBY&quot;&gt;...
+    it &quot;can get amazon&#39;s main page&quot; do
+      expect(browser.amazon.uri.to_s).to eq &#39;http://www.amazon.com/&#39;
+    end
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, we know this will fail, but we pop into our module:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;editor lib/scraper.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-RUBY&quot;&gt;require &#39;mechanize&#39;
+
+$AMAZON_URL = &#39;http://www.amazon.com/&#39;
+
+module Scraper 
+  class Browser 
+    def initialize
+      @browser = Mechanize.new { |x| x.user_agent_alias = &quot;Mac Safari&quot; }
+    end
+
+    def browser
+      @browser
+    end
+
+    def amazon
+      @browser.get($AMAZON_URL)
+    end
+  end
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By defining the constant &lt;code&gt;AMAZON_URL&lt;/code&gt; and also getting the page, we now have successfully reached
+Amazon. Time to find the search form.&lt;/p&gt;
+
+&lt;h2 id=&quot;automating-testing&quot;&gt;Automating Testing&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;Guard&lt;/code&gt; is a systems tool and Gem that will allow us to trivially run our specs whenever they change. In order to use guard,
+we first make some gemfile changes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-RUBY&quot;&gt;source &quot;https://rubygems.org&quot;
+
+gem &quot;mechanize&quot;
+# gem &quot;tesseract-ocr&quot; for later ;)
+
+group :test, :development do
+  gem &quot;rspec&quot;
+  gem &quot;guard&quot;
+  gem &quot;guard-rspec&quot;
+  gem &quot;guard-bundler&quot;
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This sets us up with guard, and the related plugins that will allow us to run it easily. Now that we are getting robust with
+our testing, we are going to make what is commonly known as a &lt;code&gt;spec_helper&lt;/code&gt; as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;editor spec/spec_helper.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-RUBY&quot;&gt;$LOAD_PATH.unshift(File.dirname(__FILE__))
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), &#39;..&#39;, &#39;lib&#39;))
+require &#39;scraper&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, we will be loading by default all our modules in here so our specs can just &lt;code&gt;&#39;require spec_helper&#39;&lt;/code&gt; and we will be good
+to go. So let’s make that change at the top&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;editor spec/scraper_spec.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;require &#39;spec_helper&#39;
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and now we can run&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bundle exec guard init&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And any time we change one of our tests, it will automatically run. Try it out!
+#### &lt;a href=&quot;/introduction/bot_two.md&quot;&gt;Interacting With the Web Using Our Bot&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/ruby-tutorial/&quot;&gt;Ruby Tutorial&lt;/a&gt; was originally published by Your Name at &lt;a href=&quot;http://localhost:4000&quot;&gt;Site Title&lt;/a&gt; on March 18, 2015.&lt;/p&gt;
+  </content>
+</entry>
 
 
   
