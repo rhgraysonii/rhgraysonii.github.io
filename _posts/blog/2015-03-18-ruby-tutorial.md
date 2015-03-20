@@ -1,14 +1,19 @@
 ---
 layout: post
 title: "Ruby Tutorial"
-modified:
-categories: 
-excerpt:
-tags: []
-image:
-  feature:
-date: 2015-03-18T21:18:07-04:00
+categories: blog
+date: 2015-03-18T21:32:31-04:00
 ---
+
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+
 # Building Something More Complex
 
 Now, this `Bob` class and any test we have written, let us be honest with ourselves, they are the
@@ -35,8 +40,8 @@ git mv lib/bob.rb lib/scraper.rb
 git mv spec/my_first_spec.rb spec/scraper_spec.rb
 editor lib/scraper_spec.rb
 ~~~
+{% highlight ruby % }
 
-~~~RUBY
 require './lib/scraper'
 
 describe Scraper do
@@ -45,7 +50,7 @@ describe Scraper do
     expect(browser.class).to eq Mechanize
   end
 end
-~~~
+{% endhighlight %}
 
 With these changes, we should get a new failure when we run all of these.
 
@@ -61,8 +66,7 @@ bobby@devbox:~/ruby_tutorial-ocr/some_dir$ rspec spec/scraper_spec.rb
 A new failure. So now we can modify the old class to make it passing!
 
 `editor lib/scraper.rb`
-
-~~~RUBY
+{% highlight ruby % }
 require 'mechanize'
 
 module Scraper 
@@ -76,8 +80,7 @@ module Scraper
     end
   end
 end
-
-~~~
+{% endhighlight %}
 There is quite a bit of change here so we will break it down piece by piece.
 
 First of all, we have created a module to wrap everything in. This provides
@@ -88,20 +91,20 @@ a Mechanize instance that is using the Mac Safari user agent alias. Now that we 
 will be able to go out and scrape some data to get things from amazing.com via our Ruby wrapper.
 
 Time for another test:
+{% highlight ruby % }
 
-~~~RUBY
 ...
     it "can get amazon's main page" do
       expect(browser.amazon.uri.to_s).to eq 'http://www.amazon.com/'
     end
 ...
-~~~
+{% endhighlight %}
 
 Now, we know this will fail, but we pop into our module:
 
 `editor lib/scraper.rb`
+{% highlight ruby % }
 
-~~~RUBY
 require 'mechanize'
 
 $AMAZON_URL = 'http://www.amazon.com/'
@@ -122,7 +125,7 @@ module Scraper
   end
 end
 
-~~~
+{% endhighlight %}
 
 By defining the constant `AMAZON_URL` and also getting the page, we now have successfully reached
 Amazon. Time to find the search form.
@@ -131,7 +134,7 @@ Amazon. Time to find the search form.
 `Guard` is a systems tool and Gem that will allow us to trivially run our specs whenever they change. In order to use guard,
 we first make some gemfile changes:
 
-~~~RUBY
+{% highlight ruby % }
 source "https://rubygems.org"
 
 gem "mechanize"
@@ -145,26 +148,28 @@ group :test, :development do
 end
 
 ~~~
+{% endhighlight %}
 
 This sets us up with guard, and the related plugins that will allow us to run it easily. Now that we are getting robust with
 our testing, we are going to make what is commonly known as a `spec_helper` as well.
 
 `editor spec/spec_helper.rb`
-
-~~~RUBY
+{% highlight ruby % }
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'scraper'
-~~~
+...
+{% endhighlight %}
+
 Now, we will be loading by default all our modules in here so our specs can just `'require spec_helper'` and we will be good
 to go. So let's make that change at the top
 
 `editor spec/scraper_spec.rb`
 
-~~~
+{% highlight ruby % }
 require 'spec_helper'
 ...
-~~~
+{% endhighlight %}
 
 and now we can run
 
