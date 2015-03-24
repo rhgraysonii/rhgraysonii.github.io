@@ -1,0 +1,33 @@
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+a {
+  color: white;
+  text-decoration: none;
+}
+html {
+    font-family:'Josefin Sans';
+    background: url(http://i.imgur.com/NtsRQPH.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#hover-area {
+	text-align:center;
+  margin: 0 auto;
+  display: block;
+}
+#reveal {
+	display: none;
+	border-radius: 3px;
+  padding: 25px;
+  color: white;
+}
+h1 {
+	text-align: center;
+  color: white;
+  font-size: 5em;
+}
+
+p {
+  text-align: center;
+}
