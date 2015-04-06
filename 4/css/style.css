@@ -58,8 +58,8 @@ body, html {
   background: rgba(15, 15, 15, 0.75);
 }
 #vimeo-pop-container div {
-  height: 360px;
-  width: 720px;
+  height: 90%;
+  width: 90%;
   position: absolute;
   left: 50%;
   top: 50%;
