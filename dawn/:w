@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<!--
+	Highlights by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Dawn Rao & Associates</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrollex.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header class="major">
+         <h1>Dawn Rao & Associates</h1>
+          <h2>Dawn Rao is a Chicago-based talent agent representing Oscar and Emmy winning and industry leading directorial and editorial talent.</h2>
+          <h2><a class='icon alt fa-envelope' href='mailto:dawn@dawnrao.com'></h2></a>
+				</header>
+				<div class="container" style='opacity:0.5;'>
+          <h4><a href="#one">Park Pictures</a> | 
+          <a href="#two">Spot Welders</a> | 
+          <a href="#three">Bob Industries</a> | 
+          <a href="#four">Thomas and Thomas</a></h4>
+				</div>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>Park Pictures</h2>
+						</header>
+						<p>Consequat sed ultricies rutrum. Sed adipiscing eu amet interdum lorem blandit vis ac commodo aliquet integer vulputate phasellus lorem ipsum dolor lorem magna consequat sed etiam adipiscing interdum.</p>
+            <img src='http://i.imgur.com/r8NgGWH.jpg' />
+					</div>
+					<a href="#two" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+    <section id="two" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>Spot Welders</h2>
+						</header>
+						<p>Consequat sed ultricies rutrum. Sed adipiscing eu amet interdum lorem blandit vis ac commodo aliquet integer vulputate phasellus lorem ipsum dolor lorem magna consequat sed etiam adipiscing interdum.</p>
+            <img src='http://i.imgur.com/r8NgGWH.jpg' />
+					</div>
+					<a href="#three" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+      
+      <section id="three" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>Bob Industries</h2>
+						</header>
+						<p>Consequat sed ultricies rutrum. Sed adipiscing eu amet interdum lorem blandit vis ac commodo aliquet integer vulputate phasellus lorem ipsum dolor lorem magna consequat sed etiam adipiscing interdum.</p>
+            <img src='http://i.imgur.com/r8NgGWH.jpg' />
+					</div>
+					<a href="#four" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+
+      <section id="four" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>Thomas and Thomas</h2>
+						</header>
+						<p>Consequat sed ultricies rutrum. Sed adipiscing eu amet interdum lorem blandit vis ac commodo aliquet integer vulputate phasellus lorem ipsum dolor lorem magna consequat sed etiam adipiscing interdum.</p>
+            <img src='http://i.imgur.com/r8NgGWH.jpg' />
+					</div>
+					<a href="#four" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+		<!-- Footer -->
+			<section id="footer">
+					<ul class="copyright">
+						<li>&copy; Dawn Rao</li>
+					</ul>
+				</footer>
+			</section>
+	</body>
+</html>
