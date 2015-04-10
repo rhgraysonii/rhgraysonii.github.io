@@ -1,0 +1,31 @@
+<h1>HI</h1>
+<h6>I'm Bobby and I put things for internet here.</h3>
+<h2>Gems</h2>
+
+<ul>
+  <l1><a href='http://www.github.com/rhgraysonii/hobos'>Hobos</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/ember_flash_message-rails'>Ember Flash Messages for Rails</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/hyde_to_jekyll'>Hyde To Jekyll</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/volt-jspack'>Volt-jspack</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/volt-d3'>Volt-D3</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/volt-glfx'>Volt-GLFX</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/volt-moment'>Volt-Moment</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/volt-card'>Volt-Card</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/volt-draggability'>Volt-Draggability</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/volt-hammer'>Volt-Hammer</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/volt-fartscroll'>Volt-Fartscroll</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/volt-splitpic'>Volt-Splitpic</a></li>
+  <l1><a href='http://www.github.com/rhgraysonii/volt-hobos'>Volt-Hobos</a></li>
+</ul>
+
+<h2>Writings</h2>
+<ul>
+  <li><a href='http://www.github.com/rhgraysonii/volt_tutorial'>Volt Tutorial</a></li>
+  <li><a href='http://www.github.com/rhgraysonii/ruby_from_zero_to_advanced'>Ruby Tutorial</a></li>
+  <li><a href='http://www.github.com/rhgraysonii/python_tutorial-oc'rmed>Python OCR Tutorial</a></li>
+  <li><a href='https://medium.com/@_devbob/feynman-and-tdd-8407d5701aa6'>Feynman and TDD</a></li>
+  <li><a href='https://medium.com/@_devbob/from-0-to-warp-speed-b780a2bc36ce'>Optimizing Linear Algebra in Numpy</a></li>
+</ul>
+<br><br>
+
+<a href='book/1.html'>ENTER A STRANGER REALM</a>
