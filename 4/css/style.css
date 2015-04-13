@@ -3,6 +3,59 @@ body, html {
   background: black !important;
 }
 
+@media only screen and (max-width: 1278px) {
+  .title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white;
+    font-family: Lato;
+    margin-bottom: 0;
+    font-size: 50px;
+  }
+
+  .subtitle {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white;
+    font-size: 13px;
+  }
+
+  .head {
+    margin-top: 1em;
+    font-family: Lato;
+    font-size: 12px;
+    margin-bottom: 0;
+    color: white;
+  }
+}
+
+
+@media only screen and (min-width: 1280px) {
+  .title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white;
+    font-family: Lato;
+    margin-bottom: 0;
+    font-size: 100px;
+  }
+
+  .subtitle {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white;
+    font-size: 26px;
+  }
+
+  .head {
+    margin-top: 1em;
+    font-family: Lato;
+    font-size: 22px;
+    margin-bottom: 0;
+    color: white;
+  }
+}
+
 @-webkit-keyframes close-before {
   0% {
     margin-top: 0;
