@@ -1,0 +1,240 @@
+
+<style>
+    /*   Comic strip jumpy style gallery   */
+* {
+  font-family: Arial, sans-serif;
+}
+.container {
+  width:650px; margin:auto; overflow:hidden; height:450px;
+}
+.boxframe1 {
+  width:530px;
+  height: 100px;
+  display:inline-block;
+  -webkit-transition:all 1s;
+}
+
+.openFrame {
+  height: 200px;
+  width: 100%;
+}
+
+.size1, .size2, .size3 {
+  position:relative;
+  float:left;
+  overflow:hidden;
+  height: 100%;
+  width: 50px;
+  margin:3px;
+  background: #ccc;
+  -webkit-transition:all 1s;
+}
+
+.gallimg {
+  height:100%;
+  position: relative;
+  opacity: 0.2;
+   -webkit-transition:all 1s;
+   -webkit-filter: grayscale(100%); 
+}
+
+.fullshine {
+  opacity: 1;
+  -webkit-filter: grayscale(0%); 
+}
+
+.shinewidth {
+  /*width: inherit;*/
+}
+
+
+.lastimg, .firstimg {
+  width: 0px !important;
+  opacity: 0;
+  margin: 0;
+}
+
+.fixRightBox {
+  position:fixed;
+  right:20px;
+  top:50px;
+}
+
+.fixLeftBox {
+  position:fixed;
+  left:20px;
+  top:50px;
+}
+
+a {
+  font-family: Arial, sans-serif;
+  color:#fff;
+  font-size:14px;
+  background:#7AB2FF;
+  padding:5px 12px;
+  display:block;
+  margin:5px 2px;
+  border-radius:4px;
+  text-decoration:underline;
+}
+
+a:hover {
+  cursor:pointer;
+}
+</style>
+
+<script>
+
+//show first img
+function startOff() {
+$('.boxframe1').removeClass('openFrame');
+$('.slidebox').css('width','100px');
+$('img').removeClass('fullshine');
+var thewidth = $('#firstRowImages').contents('.size1:nth-child(2)').contents().width();
+$('.size1:nth-child(2)').width(thewidth);
+$('.size1:nth-child(2)').contents().addClass('fullshine');
+$('#firstRowImages').addClass('openFrame');
+};
+
+// click an image to display
+$('.gallimg').click(function switchimg(){
+  var thewidth = (this).width;
+$('.slidebox').css('width','100px');
+$('img').removeClass('fullshine');
+$('.boxframe1').removeClass('openFrame');
+$(this).addClass('fullshine').parent('div').width(thewidth).parent().addClass('openFrame');
+
+});
+
+
+//next button
+$('.nextFrame').click(function(){
+  var thewidth = $('img.fullshine').parent('div').next('div').contents().width();
+  $('img.fullshine').removeClass('fullshine').parent('div').css('width','100px').next('div').width(thewidth).contents().addClass('fullshine');
+  
+  if ($('.lastimg').hasClass('fullshine'))
+  nextRow();
+});
+
+
+
+//previous button
+$('.prevFrame').click(function(){
+  var thewidth = $('img.fullshine').parent('div').prev('div').contents().width();
+
+  $('img.fullshine').removeClass('fullshine').parent('div').css('width','100px').prev('div').width(thewidth).contents().addClass('fullshine');
+
+  if ($('.firstimg').hasClass('fullshine'))
+  prevRow();
+});
+
+
+
+function nextRow() {
+$('.openFrame').removeClass('openFrame').next().addClass('openFrame');
+$('.slidebox').css('width','100px');
+$('.gallimg').removeClass('fullshine');
+var thewidth = $('.openFrame').contents('div:nth-child(2)').contents().width();
+$('.openFrame').contents('div:nth-child(2)').width(thewidth).contents().addClass('fullshine');
+};
+
+function prevRow() {
+$('.openFrame').removeClass('openFrame').prev().addClass('openFrame');
+$('.slidebox').css('width','100px');
+$('.gallimg').removeClass('fullshine');
+var thewidth = $('.openFrame').contents('div:nth-child(6)').contents().width();
+$('.openFrame').contents('div:nth-child(6)').width(thewidth).contents().addClass('fullshine');
+};
+
+$('.jumpnextRow').click( function() { 
+  nextRow() 
+});
+
+$('.jumpprevRow').click( function() { 
+  prevRow() 
+});
+
+$(document).ready( function() { 
+  startOff() 
+});
+
+$('.start').click( function() { 
+  startOff() 
+});
+
+</script>
+
+<div class="container">
+<div style="width:1000px;">
+  
+<div id="firstRowImages" class="boxframe1">
+<div class="slidebox size1 firstimg" style="width: 100px;"><img class="gallimg row1 firstimg" src=""></div>
+
+<div class="slidebox size1" style="width: 100px;"><img class="gallimg row1" width="300" src="http://d13yacurqjgara.cloudfront.net/users/18418/screenshots/1328156/1466047_183590078507451_2032792093_n.jpg"></div>
+
+<div class="slidebox size1" style="width: 100px;"><img class="gallimg row1" width="300" src="http://d13yacurqjgara.cloudfront.net/users/14501/screenshots/1327832/dribbble-app_1x.png"></div>
+
+<div class="slidebox size1" style="width: 100px;"><img class="gallimg row1" width="300" src="http://d13yacurqjgara.cloudfront.net/users/25514/screenshots/1328493/lumipage-mac-app-icon_1x.png"></div>
+
+<div class="slidebox size1" style="width: 100px;"><img class="gallimg row1" width="300" src="http://d13yacurqjgara.cloudfront.net/users/4870/screenshots/1328259/sp.jpg"></div>
+
+<div class="slidebox size1" style="width: 100px;"><img class="gallimg row1" width="300" src="http://d13yacurqjgara.cloudfront.net/users/88668/screenshots/1328279/untitled-1_1x.jpg"></div>
+
+<div class="slidebox size1 lastimg" style="width: 100px;"><img class="gallimg row1 lastimg" src="" style=""></div>
+
+</div>
+
+
+<div id="secondRowImages" class="boxframe1 openFrame">
+
+<div class="slidebox size2 firstimg" style="width: 100px;"><img class="gallimg row1 firstimg" src=""></div>
+
+<div class="slidebox size2" style="width: 100px;"><img class="gallimg row1" width="227" src="http://d13yacurqjgara.cloudfront.net/users/247371/screenshots/1328607/connecticons_dribbleshot_1x.jpg"></div>
+
+<div class="slidebox size2" style="width: 227px;"><img class="gallimg row1 fullshine" width="227" src="http://d13yacurqjgara.cloudfront.net/users/120207/screenshots/1327869/jack_daniels.png"></div>
+
+<div class="slidebox size2" style="width: 100px;"><img class="gallimg row1" width="227" src="http://d13yacurqjgara.cloudfront.net/users/108482/screenshots/1328166/star_1x.png"></div>
+
+<div class="slidebox size2" style="width: 100px;"><img class="gallimg row1" width="227" src="http://d13yacurqjgara.cloudfront.net/users/41854/screenshots/1328269/dribbblea_1x.png"></div>
+
+<div class="slidebox size2" style="width: 100px;"><img class="gallimg row1" width="227" src="http://d13yacurqjgara.cloudfront.net/users/12779/screenshots/1327873/sunshine_and_barley_t_1x.jpg"></div>
+
+<div class="slidebox size2 lastimg" style="width: 100px;"><img class="gallimg row1 lastimg" src="" style=""></div>
+
+</div>
+
+
+<div id="thirdRowImages" class="boxframe1">
+
+<div class="slidebox size3 firstimg" style="width: 100px;"><img class="gallimg row1 firstimg" src=""></div>
+
+<div class="slidebox size3" style="width: 100px;"><img class="gallimg row1" width="227" src="http://d13yacurqjgara.cloudfront.net/users/399363/screenshots/1328299/dribble_ask_1x.jpg"></div>
+
+<div class="slidebox size3" style="width: 100px;"><img class="gallimg row1" width="227" src="http://d13yacurqjgara.cloudfront.net/users/146798/screenshots/1328364/clock_1x.png"></div>
+
+<div class="slidebox size3" style="width: 100px;"><img class="gallimg row1" width="227" src="http://d13yacurqjgara.cloudfront.net/users/55989/screenshots/1328136/space-giraffe_1x.jpg"></div>
+
+<div class="slidebox size3" style="width: 100px;"><img class="gallimg row1" width="227" src="http://d13yacurqjgara.cloudfront.net/users/3511/screenshots/1328666/prvw-1-o_1x.jpg"></div>
+
+<div class="slidebox size3" style="width: 100px;"><img class="gallimg row1" width="227" src="http://d13yacurqjgara.cloudfront.net/users/381530/screenshots/1328240/previo_002_1x.jpg"></div>
+
+<div class="slidebox size3 lastimg" style="width: 100px;"><img class="gallimg row1 lastimg" src=""></div>
+
+</div>
+
+
+
+  </div>          
+</div>
+
+<div class="fixRightBox">
+  <a class="nextFrame">Next Image ></a>
+  <a class="jumpnextRow">Next Row ></a>
+</div>
+
+<div class="fixLeftBox">
+  <a class="prevFrame">< Previous Image</a>
+  <a class="jumpprevRow">< Previous Row</a>
+</div>
+Click an image to view or use buttons to scroll through...
+<a class="start">reset</a><br>
